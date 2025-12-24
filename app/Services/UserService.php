@@ -31,8 +31,6 @@ class UserService
              // Regenerate the session to prevent fixation attacks
              $request->session()->regenerate();
 
-              // Manually save session (usually not required if using web middleware)
-             $request->session()->save();
 
              return true;
      

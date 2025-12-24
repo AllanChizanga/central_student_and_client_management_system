@@ -20,7 +20,7 @@ class CreateStudentLivewire extends Component
     #[Validate('required|string|min:6')]
     public $password = "zomac_student";
 
-    #[Validate('required|string|size:12|regex:/^263[0-9]{9}$/|unique:users,phonenumber')]
+    #[Validate('required|string|size:12|regex:/^263[0-9]{9}$/|unique:users,phonenumber')] #12 characters starting with 263
 
     public $phonenumber;
 

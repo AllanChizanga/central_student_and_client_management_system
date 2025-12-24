@@ -44,8 +44,11 @@
                                     wire:model.defer="phonenumber"
                                     id="phonenumber"
                                     class="form-control @error('phonenumber') is-invalid @enderror"
-                                    placeholder="Enter phone number (exclude 263, e.g., 771234567)"
+                                    placeholder="263719203127"
                                     aria-describedby="phone-code-prefix"
+                                    minlength="12"
+                                    maxlength="12"
+                            
                                 >
                             </div>
                             @error('phonenumber')<span class="invalid-feedback">{{ $message }}</span>@enderror

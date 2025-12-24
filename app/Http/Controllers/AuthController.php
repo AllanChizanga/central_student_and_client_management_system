@@ -20,13 +20,7 @@ class AuthController extends Controller
     // login
 
     public function login(LoginRequest $request)
-    {
-        /**
-         * Solving -- middleware not authenticating
-         * sessions user_id must be uuid
-         * User model must be authenticatable
-         */
-
+    { 
         #VALIDATION
         $request->validated();
         $email = $request->email;
