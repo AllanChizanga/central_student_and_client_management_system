@@ -33,7 +33,7 @@ class CreateStudentLivewire extends Component
     #[Validate('required|string|in:active,inactive,suspended')]
     public $status;
 
-    #[Validate('required|string|in:enrolled,not_enrolled,pending')]
+    #[Validate('required|string|in:enrolled,pending')]
     public $enrollment_status;
 
     #[Validate('required|string|in:male,female,other')]

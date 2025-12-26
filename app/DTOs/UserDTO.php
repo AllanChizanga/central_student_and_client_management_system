@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Hash;
 class UserDTO
 {
     public function __construct(
-        public readonly ?int $id = null,
+        public readonly ?string $id = null,
         public readonly string $fullname = '',
         public readonly string $email = '',
         public readonly string $password = '',
@@ -47,7 +47,7 @@ class UserDTO
      *
      * @return array<string, mixed>
      */
-    public function toArray(): array
+    public function to_array(): array
     {
         return [
             'id' => $this->id,

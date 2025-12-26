@@ -83,8 +83,7 @@
                             <select wire:model.defer="enrollment_status" id="enrollment_status" class="form-select @error('enrollment_status') is-invalid @enderror">
                                 <option value="">Select enrollment status</option>
                                 <option value="enrolled">Enrolled</option>
-                                <option value="graduated">Graduated</option>
-                                <option value="dropped">Dropped</option>
+                                <option value="pending">Pending</option>
                             </select>
                             @error('enrollment_status')<span class="invalid-feedback">{{ $message }}</span>@enderror
                         </div>

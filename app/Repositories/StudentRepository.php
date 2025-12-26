@@ -3,8 +3,10 @@
 namespace App\Repositories;
 
 use Log;
+use Exception;
 use Throwable;
 use App\Models\Student;
+use App\DTOs\StudentDTO;
 
 class StudentRepository
 {
@@ -16,6 +18,8 @@ class StudentRepository
         //
     } 
 
+
+    #CREATE
     public function create($student_dto)
     {
 
@@ -29,10 +33,30 @@ class StudentRepository
         Log::error($e);
         $student = null;
         return $student;
-    }
-    
+    } 
+}
 
- 
-    
+
+    #UPDATE 
+
+public function update(StudentDTO $student_dto)
+{
+    try {
+        $data = $student_dto->to_array();
+
+        $student = Student::find($student_dto->id);
+
+        if ($student) {
+            $student->update($data);
+        }
+        else{
+        throw new Throwable('Student not found.');
+        }
+
+        return $student;
+    } catch (Throwable $e) {
+        Log::error($e);
+        return null;
     }
 }
+}//endof clas

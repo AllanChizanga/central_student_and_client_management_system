@@ -65,6 +65,18 @@ class UserService
 
         return $user;
       
+     } 
+
+
+     #UPDATE 
+     public function update(UserDTO $userDTO)
+     { 
+
+        #pass data to repository 
+        $user = $this->user_repository->update($userDTO);
+
+        return $user;
+      
      }
 
 }//endof class 

@@ -31,7 +31,7 @@ class AuthController extends Controller
         #RESPONSE
         return $res
             ? redirect()->route('dashboard')
-            : back()->withErrors(['email' => 'The provided credentials do not match our records.']);
+            : back()->withErrors(['email' => 'The provided credentials do not match our records.']); //do not change the text
     }
 
 

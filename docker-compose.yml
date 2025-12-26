@@ -1,0 +1,34 @@
+services:
+  # php service container
+  central_student_client_system:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      args:
+        user: allan
+        uid: 1000
+    image: central_student_client_system_app_image
+    container_name: central_student_client_system
+    restart: unless-stopped
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www
+    networks:
+      - central_network
+
+  # nginx service
+  central_student_client_webserver:
+    image: nginx:alpine
+    container_name: central_student_client_webserver_container
+    restart: unless-stopped
+    ports:
+      - "6162:80"
+    volumes:
+      - ./:/var/www
+      - ./docker-compose/nginx/:/etc/nginx/conf.d
+    networks:
+      - central_network
+
+networks:
+  central_network:
+    driver: bridge

@@ -15,6 +15,8 @@ class StudentService
         
     } 
 
+
+    #CREATE
     public function create(StudentDTO $student_dto)
     { 
 
@@ -24,4 +26,17 @@ class StudentService
        return $student;
         
     }
+
+
+    #UPDATE 
+    public function update(StudentDTO $student_dto)
+    { 
+
+        #pass to repository
+       $student =  $this->student_repository->update($student_dto);
+      //  dd($student);
+       return $student;
+        
+
+}
 }//endof class
