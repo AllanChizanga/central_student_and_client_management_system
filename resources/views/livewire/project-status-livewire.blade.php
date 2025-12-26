@@ -1,4 +1,4 @@
-<div class="p-0">
+<div class="app-card p-0">
     <div id="project-status-chart"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
@@ -13,7 +13,7 @@
         labels: ['Completed', 'In Progress', 'On Hold', 'Cancelled'],
         colors: ['#10B981', '#3B82F6', '#F59E0B', '#EF4444'],
         legend: {
-            position: 'bottom'
+            show: false
         },
         dataLabels: {
             formatter: function(val, opts) {

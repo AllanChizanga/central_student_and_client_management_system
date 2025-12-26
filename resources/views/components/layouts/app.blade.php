@@ -7,9 +7,19 @@
 
     <title>{{ $title ?? 'Central Student And Client Management System' }}</title>
     @include('components.links')
+
+
+
+    
+    <style>
+        * {
+            font-family: 'Inter', 'system-ui', '-apple-system', 'sans-serif' !important;
+        }
+    </style>
+
 </head>
 
-<body>
+<body class="app-bg-main">
     <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
         data-sidebar-position="fixed" data-header-position="fixed">
         @include('components.topstrip')

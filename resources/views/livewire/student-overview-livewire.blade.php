@@ -1,4 +1,4 @@
-<div class="container-fluid p-0">
+<div class="app-card p-0">
     <div id="student-status-chart"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
@@ -20,7 +20,7 @@
             labels: studentStatusLabels,
             colors: ['#10B981', '#3B82F6', '#F59E0B', '#EF4444'],
             legend: {
-                position: 'bottom'
+                show: false
             },
             dataLabels: {
                 formatter: function(val, opts) {

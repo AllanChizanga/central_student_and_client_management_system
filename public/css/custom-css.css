@@ -1,0 +1,149 @@
+/* =================================
+   Modern Dark Theme – Ready to Use
+   ================================= */
+
+/* -------------------------------
+   Base Backgrounds
+--------------------------------- */
+.app-bg-main {
+    background-color: #0B0F14 !important;
+}
+
+.app-bg-surface {
+    background-color: #111827 !important;
+}
+
+.app-bg-elevated {
+    background-color: #161E2E !important;
+}
+
+.app-border {
+    border-color: #1F2937 !important;
+}
+
+/* -------------------------------
+   Text Colors
+--------------------------------- */
+.app-text-primary {
+    color: #E5E7EB !important;
+}
+
+.app-text-secondary {
+    color: #9CA3AF !important;
+}
+
+.app-text-muted {
+    color: #6B7280 !important;
+}
+
+.app-text-placeholder {
+    color: #4B5563 !important;
+}
+
+/* -------------------------------
+   Accent Colors
+--------------------------------- */
+.app-accent {
+    color: #3B82F6 !important;
+}
+
+.app-accent-hover:hover {
+    color: #2563EB !important;
+}
+
+.app-accent-soft {
+    color: #1E3A8A !important;
+}
+
+/* -------------------------------
+   Status Colors
+--------------------------------- */
+.app-status-success {
+    color: #22C55E !important;
+}
+
+.app-status-warning {
+    color: #F59E0B !important;
+}
+
+.app-status-error {
+    color: #EF4444 !important;
+}
+
+.app-status-info {
+    color: #38BDF8 !important;
+}
+
+/* -------------------------------
+   Card / Surface Example
+--------------------------------- */
+.app-card {
+    background-color: #1F2937;
+    color: #F3F4F6;
+    border: 1px solid #1E293B;
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.16);
+}
+
+/* -------------------------------
+   Buttons
+--------------------------------- */
+.app-btn {
+    background-color: #3B82F6;
+    color: #ffffff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.app-btn:hover {
+    background-color: #2563EB;
+}
+
+.app-btn-success {
+    background-color: #22C55E;
+}
+
+.app-btn-warning {
+    background-color: #F59E0B;
+}
+
+.app-btn-error {
+    background-color: #EF4444;
+}
+
+.app-btn-info {
+    background-color: #38BDF8;
+}
+
+/* -------------------------------
+   Input / Form Controls
+--------------------------------- */
+.app-input {
+    background-color: #161E2E;
+    color: #E5E7EB;
+    border: 1px solid #1F2937;
+    padding: 0.5rem;
+    border-radius: 0.375rem;
+    width: 100%;
+}
+
+.app-input::placeholder {
+    color: #4B5563;
+}
+
+/* -------------------------------
+   Links
+--------------------------------- */
+.app-link {
+    color: #3B82F6;
+    text-decoration: none;
+}
+
+.app-link:hover {
+    color: #2563EB;
+    text-decoration: underline;
+}

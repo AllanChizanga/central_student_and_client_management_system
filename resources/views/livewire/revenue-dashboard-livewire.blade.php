@@ -1,5 +1,7 @@
 <div class="container-fluid p-0">
-    <div id="monthly-revenue-chart"></div>
+    <div class="app-card">
+        <div id="monthly-revenue-chart"></div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script>

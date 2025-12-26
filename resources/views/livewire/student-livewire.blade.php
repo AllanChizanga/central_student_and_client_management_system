@@ -1,40 +1,49 @@
 <div>
-    <div class="container-fluid pt-5" style="padding-top: 8rem !important;">
-
+    <div class="container-fluid" style="padding-top: 8rem !important;">
         @livewire('create-student-livewire')
         @livewire('update-student-livewire')
 
         <div class="py-2">
-            <div class="d-flex align-items-center justify-content-between rounded bg-primary bg-gradient px-4 py-2 mb-3 shadow">
+            <div class="d-flex align-items-center justify-content-between rounded app-bg-elevated px-4 py-2 mb-3 shadow">
                 <div class="d-flex align-items-center gap-3">
-                    <i class="ti ti-graduate text-white" style="font-size: 28px;"></i>
-                    <h2 class="h4 fw-bold text-white mb-0">Manage Students</h2>
+                    <h4 class="text-sm fw-light app-text-primary mb-2">
+                        <i class="ti ti-users me-2"></i>
+                        Manage Students
+                    </h4>
                 </div>
                 <div class="d-flex gap-2">
-                    <button wire:click="view_create_student_modal" class="btn btn-light btn-sm fw-semibold shadow-sm">
+                    <button
+                        wire:click="view_create_student_modal"
+                        class="btn app-btn btn-sm fw-semibold shadow-sm"
+                    >
                         <i class="ti ti-user-plus me-1"></i> Add Student
                     </button>
-                    <button wire:click="uploadExcel" class="btn btn-success btn-sm fw-semibold shadow-sm">
+                    <button class="btn app-btn btn-sm fw-semibold shadow-sm">
                         <i class="ti ti-file-upload me-1"></i> Upload from Excel
                     </button>
                 </div>
             </div>
+
             <div class="mb-3">
-                <div class="row g-2 align-items-end">
+                <div class="row g-4 align-items-end mt-4 mb-4">
                     <div class="col-md-6 col-sm-12">
-                        <label for="search" class="form-label mb-1">Search</label>
+                        <label for="search" class="form-label mb-1 text-white">Search</label>
                         <input
                             type="text"
                             id="search"
                             wire:model.live.debounce.400ms="search"
                             placeholder="Search by name, email, or student number..."
-                            class="form-control shadow-sm"
+                            class="form-control shadow-sm py-3 px-4 fs-5"
                         >
                     </div>
-                   
-                    <div class="col-md-3 col-sm-6">
-                        <label for="enrollment" class="form-label mb-1">Enrollment Status</label>
-                        <select id="enrollment" wire:model.live="filter_enrollment" class="form-select shadow-sm">
+                    <div class="col-md-3 col-sm-6 d-flex flex-column align-items-start">
+                        <label for="enrollment" class="form-label mb-1 text-white">Enrollment Status</label>
+                        <select
+                            id="enrollment"
+                            wire:model.live="filter_enrollment"
+                            class="form-select form-select-md shadow-sm text-white bg-dark border-0 py-3 px-4 fs-5 w-100"
+                            style="min-width: 230px;"
+                        >
                             <option value="">All</option>
                             <option value="enrolled">Enrolled</option>
                             <option value="pending">Pending</option>
@@ -45,14 +54,13 @@
                     </div>
                 </div>
             </div>
-            <div class="row g-4">
 
-                <!-- Student Table -->
-                <div class="col-12 col-lg-12">
+            <div class="row g-4">
+                <div class="col-12">
                     <div class="card shadow-sm">
                         <div class="table-responsive">
-                            <table class="table table-hover align-middle mb-0">
-                                <thead class="table-primary">
+                            <table class="table p-5 rounded">
+                                <thead>
                                     <tr>
                                         <th scope="col">#</th>
                                         <th scope="col">Student Number</th>
@@ -101,27 +109,28 @@
             </div>
         </div>
     </div>
-<script>
-    window.addEventListener('not-authorized-to-delete-student', () => {
-        const notyf = new Notyf({
-            duration: 3000,
-            position: { x: 'right', y: 'top' },
-            types: [
-                {
-                    type: 'error',
-                    background: '#dc3545',
-                    icon: {
-                        className: 'fas fa-times',
-                        tagName: 'i',
-                        color: '#fff'
+
+    <script>
+        window.addEventListener('not-authorized-to-delete-student', () => {
+            const notyf = new Notyf({
+                duration: 3000,
+                position: { x: 'right', y: 'top' },
+                types: [
+                    {
+                        type: 'error',
+                        background: '#dc3545',
+                        icon: {
+                            className: 'fas fa-times',
+                            tagName: 'i',
+                            color: '#fff'
+                        }
                     }
-                }
-            ]
+                ]
+            });
+            notyf.open({
+                type: 'error',
+                message: 'You are not authorized to delete this student.'
+            });
         });
-        notyf.open({
-            type: 'error',
-            message: 'You are not authorized to delete this student.'
-        });
-    });
-</script>
+    </script>
 </div>

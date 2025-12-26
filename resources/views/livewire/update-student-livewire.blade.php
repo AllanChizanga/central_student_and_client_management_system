@@ -3,144 +3,144 @@
         <!-- Update Student Modal -->
         <div wire:ignore.self class="modal fade" id="updateStudentModal" tabindex="-1" aria-labelledby="updateStudentModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
-                <form wire:submit.prevent="update" class="modal-content">
+                <form wire:submit.prevent="update" class="modal-content app-card">
                     <div class="modal-header bg-primary text-white">
-                        <h5 class="modal-title" id="updateStudentModalLabel">Update Student</h5>
+                        <h5 class="modal-title app-text-primary" id="updateStudentModalLabel">Update Student</h5>
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <div class="row g-3">
                             @if (session()->has('error'))
-                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                    {{ session('error') }}
+                                <div class="alert alert-danger alert-dismissible fade show app-text-primary" role="alert">
+                                    <span class="app-text-primary">{{ session('error') }}</span>
                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                 </div>
                             @endif
 
                             <div class="col-md-6">
-                                <label for="update_fullname" class="form-label">Full Name</label>
-                                <input type="text" wire:model.defer="fullname" id="update_fullname" class="form-control @error('fullname') is-invalid @enderror" placeholder="Enter full name">
-                                @error('fullname')<span class="invalid-feedback">{{ $message }}</span>@enderror
+                                <label for="update_fullname" class="form-label app-text-primary">Full Name</label>
+                                <input type="text" wire:model.defer="fullname" id="update_fullname" class="form-control @error('fullname') is-invalid @enderror app-text-primary" placeholder="Enter full name">
+                                @error('fullname')<span class="invalid-feedback app-text-primary">{{ $message }}</span>@enderror
                             </div>
 
                             <div class="col-md-6">
-                                <label for="update_email" class="form-label">Email</label>
-                                <input type="email" wire:model.defer="email" id="update_email" class="form-control @error('email') is-invalid @enderror" placeholder="Enter email address">
-                                @error('email')<span class="invalid-feedback">{{ $message }}</span>@enderror
+                                <label for="update_email" class="form-label app-text-primary">Email</label>
+                                <input type="email" wire:model.defer="email" id="update_email" class="form-control @error('email') is-invalid @enderror app-text-primary" placeholder="Enter email address">
+                                @error('email')<span class="invalid-feedback app-text-primary">{{ $message }}</span>@enderror
                             </div>
 
                             <div class="col-md-6">
-                                <label for="update_phonenumber" class="form-label">Phone Number</label>
+                                <label for="update_phonenumber" class="form-label app-text-primary">Phone Number</label>
                                 <div class="input-group">
-                                    <span class="input-group-text" id="update-phone-code-prefix">263</span>
+                                    <span class="input-group-text app-text-primary" id="update-phone-code-prefix">263</span>
                                     <input
                                         type="text"
                                         wire:model.defer="phonenumber"
                                         id="update_phonenumber"
-                                        class="form-control @error('phonenumber') is-invalid @enderror"
+                                        class="form-control @error('phonenumber') is-invalid @enderror app-text-primary"
                                         placeholder="263719203127"
                                         aria-describedby="update-phone-code-prefix"
                                         minlength="12"
                                         maxlength="12"
                                     >
                                 </div>
-                                @error('phonenumber')<span class="invalid-feedback">{{ $message }}</span>@enderror
+                                @error('phonenumber')<span class="invalid-feedback app-text-primary">{{ $message }}</span>@enderror
                             </div>
 
                             <div class="col-md-6">
-                                <label for="update_user_type" class="form-label">User Type</label>
-                                <select wire:model.defer="user_type" id="update_user_type" class="form-select @error('user_type') is-invalid @enderror">
-                                    <option value="">Select type</option>
-                                    <option value="student">Student</option>
-                                    <option value="client">Client</option>
-                                    <option value="lead">Lead</option>
+                                <label for="update_user_type" class="form-label app-text-primary">User Type</label>
+                                <select wire:model.defer="user_type" id="update_user_type" class="form-select @error('user_type') is-invalid @enderror app-text-primary">
+                                    <option value="" class="app-text-primary">Select type</option>
+                                    <option value="student" class="app-text-primary">Student</option>
+                                    <option value="client" class="app-text-primary">Client</option>
+                                    <option value="lead" class="app-text-primary">Lead</option>
                                 </select>
-                                @error('user_type')<span class="invalid-feedback">{{ $message }}</span>@enderror
+                                @error('user_type')<span class="invalid-feedback app-text-primary">{{ $message }}</span>@enderror
                             </div>
 
                             <div class="col-md-6">
-                                <label for="update_status" class="form-label">Status</label>
-                                <select wire:model.defer="status" id="update_status" class="form-select @error('status') is-invalid @enderror">
-                                    <option value="">Select status</option>
-                                    <option value="active">Active</option>
-                                    <option value="inactive">Inactive</option>
-                                    <option value="suspended">Suspended</option>
+                                <label for="update_status" class="form-label app-text-primary">Status</label>
+                                <select wire:model.defer="status" id="update_status" class="form-select @error('status') is-invalid @enderror app-text-primary">
+                                    <option value="" class="app-text-primary">Select status</option>
+                                    <option value="active" class="app-text-primary">Active</option>
+                                    <option value="inactive" class="app-text-primary">Inactive</option>
+                                    <option value="suspended" class="app-text-primary">Suspended</option>
                                 </select>
-                                @error('status')<span class="invalid-feedback">{{ $message }}</span>@enderror
+                                @error('status')<span class="invalid-feedback app-text-primary">{{ $message }}</span>@enderror
                             </div>
 
                             <div class="col-md-6">
-                                <label for="update_enrollment_status" class="form-label">Enrollment Status</label>
-                                <select wire:model.defer="enrollment_status" id="update_enrollment_status" class="form-select @error('enrollment_status') is-invalid @enderror">
-                                    <option value="">Select enrollment status</option>
-                                    <option value="enrolled">Enrolled</option>
-                                    <option value="pending">Pending</option>
+                                <label for="update_enrollment_status" class="form-label app-text-primary">Enrollment Status</label>
+                                <select wire:model.defer="enrollment_status" id="update_enrollment_status" class="form-select @error('enrollment_status') is-invalid @enderror app-text-primary">
+                                    <option value="" class="app-text-primary">Select enrollment status</option>
+                                    <option value="enrolled" class="app-text-primary">Enrolled</option>
+                                    <option value="pending" class="app-text-primary">Pending</option>
                                 </select>
-                                @error('enrollment_status')<span class="invalid-feedback">{{ $message }}</span>@enderror
+                                @error('enrollment_status')<span class="invalid-feedback app-text-primary">{{ $message }}</span>@enderror
                             </div>
 
                             <div class="col-md-6">
-                                <label for="update_admission_date" class="form-label">Admission Date</label>
+                                <label for="update_admission_date" class="form-label app-text-primary">Admission Date</label>
                                 <div class="input-group">
                                     <input type="date"
                                         wire:model.defer="admission_date"
                                         id="update_admission_date"
-                                        class="form-control @error('admission_date') is-invalid @enderror"
+                                        class="form-control @error('admission_date') is-invalid @enderror app-text-primary"
                                         max="{{ old('graduation_date', $graduation_date ?? '') ?: '' }}"
                                     >
-                                    <span class="input-group-text">
-                                        <i class="bi bi-calendar"></i>
+                                    <span class="input-group-text app-text-primary">
+                                        <i class="bi bi-calendar app-text-primary"></i>
                                     </span>
                                 </div>
-                                @error('admission_date')<span class="invalid-feedback d-block">{{ $message }}</span>@enderror
+                                @error('admission_date')<span class="invalid-feedback d-block app-text-primary">{{ $message }}</span>@enderror
                             </div>
 
                             <div class="col-md-6">
-                                <label for="update_graduation_date" class="form-label">Graduation Date</label>
+                                <label for="update_graduation_date" class="form-label app-text-primary">Graduation Date</label>
                                 <div class="input-group">
                                     <input type="date"
                                         wire:model.defer="graduation_date"
                                         id="update_graduation_date"
-                                        class="form-control @error('graduation_date') is-invalid @enderror"
+                                        class="form-control @error('graduation_date') is-invalid @enderror app-text-primary"
                                         min="{{ old('admission_date', $admission_date ?? '') ?: '' }}"
                                     >
-                                    <span class="input-group-text">
-                                        <i class="bi bi-calendar"></i>
+                                    <span class="input-group-text app-text-primary">
+                                        <i class="bi bi-calendar app-text-primary"></i>
                                     </span>
                                 </div>
-                                @error('graduation_date')<span class="invalid-feedback d-block">{{ $message }}</span>@enderror
+                                @error('graduation_date')<span class="invalid-feedback d-block app-text-primary">{{ $message }}</span>@enderror
                             </div>
 
                             <div class="col-md-6">
-                                <label for="update_gender" class="form-label">Gender</label>
-                                <select wire:model.defer="gender" id="update_gender" class="form-select @error('gender') is-invalid @enderror">
-                                    <option value="">Select gender</option>
-                                    <option value="male">Male</option>
-                                    <option value="female">Female</option>
-                                    <option value="other">Other</option>
+                                <label for="update_gender" class="form-label app-text-primary">Gender</label>
+                                <select wire:model.defer="gender" id="update_gender" class="form-select @error('gender') is-invalid @enderror app-text-primary">
+                                    <option value="" class="app-text-primary">Select gender</option>
+                                    <option value="male" class="app-text-primary">Male</option>
+                                    <option value="female" class="app-text-primary">Female</option>
+                                    <option value="other" class="app-text-primary">Other</option>
                                 </select>
-                                @error('gender')<span class="invalid-feedback">{{ $message }}</span>@enderror
+                                @error('gender')<span class="invalid-feedback app-text-primary">{{ $message }}</span>@enderror
                             </div>
 
                             <div class="col-md-6">
-                                <label for="update_address" class="form-label">Address</label>
-                                <input type="text" wire:model.defer="address" id="update_address" class="form-control @error('address') is-invalid @enderror" placeholder="Enter address">
-                                @error('address')<span class="invalid-feedback">{{ $message }}</span>@enderror
+                                <label for="update_address" class="form-label app-text-primary">Address</label>
+                                <input type="text" wire:model.defer="address" id="update_address" class="form-control @error('address') is-invalid @enderror app-text-primary" placeholder="Enter address">
+                                @error('address')<span class="invalid-feedback app-text-primary">{{ $message }}</span>@enderror
                             </div>
                             
                             <div class="col-md-6">
-                                <label for="update_city" class="form-label">City</label>
-                                <input type="text" wire:model.defer="city" id="update_city" class="form-control @error('city') is-invalid @enderror" placeholder="Enter city">
-                                @error('city')<span class="invalid-feedback">{{ $message }}</span>@enderror
+                                <label for="update_city" class="form-label app-text-primary">City</label>
+                                <input type="text" wire:model.defer="city" id="update_city" class="form-control @error('city') is-invalid @enderror app-text-primary" placeholder="Enter city">
+                                @error('city')<span class="invalid-feedback app-text-primary">{{ $message }}</span>@enderror
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        <button type="button" class="btn btn-secondary app-text-primary" data-bs-dismiss="modal">
                             Cancel
                         </button>
                         <button type="submit"
-                            class="btn btn-primary d-inline-flex align-items-center"
+                            class="btn btn-primary d-inline-flex align-items-center app-text-primary"
                             wire:loading.attr="disabled"
                             wire:target="update"
                         >
@@ -151,10 +151,10 @@
                             >
                                 <span class="spinner-border spinner-border-sm align-middle" role="status" aria-hidden="true"></span>
                             </span>
-                            <span wire:loading.remove wire:target="update">
+                            <span wire:loading.remove wire:target="update" class="app-text-primary">
                                 Update Student
                             </span>
-                            <span wire:loading wire:target="update">
+                            <span wire:loading wire:target="update" class="app-text-primary">
                                 Saving...
                             </span>
                         </button>
