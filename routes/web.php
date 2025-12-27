@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Middleware\IsAuth;
+use App\Livewire\CourseLivewire;
 use App\Livewire\StudentLivewire;
 use App\Livewire\DashboardLivewire;
 use Illuminate\Support\Facades\Route;
@@ -19,5 +20,11 @@ Route::post('logout','logout')->name('logout');
 
 #DASHBOARD 
 Route::get('/',DashboardLivewire::class)->name('dashboard')->middleware('auth');  
+
+
 #STUDENT CRUDS
-Route::get('student-management',StudentLivewire::class)->name('student')->middleware('auth');  
+Route::get('student-management',StudentLivewire::class)->name('student')->middleware('auth');
+
+
+#COURSE
+Route::get('course-management',CourseLivewire::class)->name('course')->middleware('auth');  

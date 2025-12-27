@@ -14,12 +14,18 @@ class Course extends Model
     protected $fillable = [
         'name',
         'category',
-        'duration_months',
         'active',
+        'duration_months',
+        'mode_of_learning',
         'total_fee',
         'fee_currency',
         'monthly_fee',
         'syllabus_pdf',
+        'summary',
+        'prerequisites',
+        'weekly_schedule',
+        'grading',
+        'type_of_assessments',
     ];
 
     /**

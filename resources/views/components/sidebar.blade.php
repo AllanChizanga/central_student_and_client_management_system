@@ -7,7 +7,7 @@
         <ul id="sidebarnav" class="pb-8">
             <li class="sidebar-item app-text-primary">
                 <a class="sidebar-link app-text-primary" 
-                   href="#" 
+                   href="{{ route('dashboard') }}" 
                    data-bs-toggle="tooltip" 
                    data-bs-placement="right" 
                    title="View dashboard overview, stats, and recent activity">
@@ -27,12 +27,22 @@
             </li>
             <li class="sidebar-item app-text-primary">
                 <a class="sidebar-link app-text-primary" 
-                   href="#"
+                   href="{{ route('course') }}"
                    data-bs-toggle="tooltip" 
                    data-bs-placement="right" 
                    title="View and manage available courses">
                     <i class="ti ti-book app-text-primary"></i>
                     <span class="hide-menu app-text-primary">Courses</span>
+                </a>
+            </li>
+            <li class="sidebar-item app-text-primary">
+                <a class="sidebar-link app-text-primary"
+                   href="{{ route('dashboard') }}"
+                   data-bs-toggle="tooltip"
+                   data-bs-placement="right"
+                   title="View and manage course intakes">
+                    <i class="ti ti-calendar-event app-text-primary"></i>
+                    <span class="hide-menu app-text-primary">Intakes</span>
                 </a>
             </li>
             <li class="sidebar-item app-text-primary">
