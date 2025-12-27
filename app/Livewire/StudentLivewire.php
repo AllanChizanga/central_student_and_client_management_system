@@ -18,7 +18,9 @@ class StudentLivewire extends Component
 
     #attributes 
 
-    public $search = '';
+    public $search = ''; 
+
+    public $students_tests; //using this var for tests only
 
     public $filter_enrollment = 'enrolled';
  
@@ -64,8 +66,8 @@ class StudentLivewire extends Component
             ]);
             $students = collect(); // Return empty collection in case of error
         } 
-
-        return $students;
+        $this->students_tests = $students->getCollection(); //just for the tests
+        return $students; 
 
      }//endof fetch all students 
 

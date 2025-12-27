@@ -2,6 +2,7 @@
 
 use App\Http\Middleware\IsAuth;
 use App\Livewire\CourseLivewire;
+use App\Livewire\IntakeLivewire;
 use App\Livewire\StudentLivewire;
 use App\Livewire\DashboardLivewire;
 use Illuminate\Support\Facades\Route;
@@ -28,3 +29,6 @@ Route::get('student-management',StudentLivewire::class)->name('student')->middle
 
 #COURSE
 Route::get('course-management',CourseLivewire::class)->name('course')->middleware('auth');  
+
+#INTAKE
+Route::get('intake-management',IntakeLivewire::class)->name('intake')->middleware('auth');  

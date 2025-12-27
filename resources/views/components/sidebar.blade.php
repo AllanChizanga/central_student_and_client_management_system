@@ -37,7 +37,7 @@
             </li>
             <li class="sidebar-item app-text-primary">
                 <a class="sidebar-link app-text-primary"
-                   href="{{ route('dashboard') }}"
+                   href="{{ route('intake') }}"
                    data-bs-toggle="tooltip"
                    data-bs-placement="right"
                    title="View and manage course intakes">

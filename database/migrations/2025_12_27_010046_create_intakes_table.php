@@ -12,7 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('intakes', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
+            $table->string('cohort');
+            $table->date('start_date');
+            $table->date('graduation_date');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -84,8 +84,13 @@
                                             <td>{{ $student->city ?? '-' }}</td>
                                             <td>
                                                 <div class="d-flex gap-2 justify-content-center">
-                                                    <button wire:click="initiate_update_student('{{ $student->id }}')" class="btn btn-link btn-sm text-primary p-0" title="Edit">
-                                                        <i class="ti ti-pencil"></i>
+                                                    <button wire:click="initiate_update_student('{{ $student->id }}')" class="btn btn-link btn-sm text-primary p-0 position-relative" title="Edit" wire:loading.attr="disabled" wire:target="initiate_update_student('{{ $student->id }}')">
+                                                        <span wire:loading.remove wire:target="initiate_update_student('{{ $student->id }}')">
+                                                            <i class="ti ti-pencil"></i>
+                                                        </span>
+                                                        <span wire:loading wire:target="initiate_update_student('{{ $student->id }}')">
+                                                            <span class="spinner-border spinner-border-sm align-middle" role="status" aria-hidden="true"></span>
+                                                        </span>
                                                     </button>
                                                     <button wire:click="delete('{{ $student->id }}')" class="btn btn-link btn-sm text-danger p-0" title="Delete">
                                                         <i class="ti ti-trash"></i>

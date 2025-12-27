@@ -173,12 +173,15 @@ class UpdateStudentLivewire extends Component
         if($user && $student)
         {
             $this->dispatch('student-updated-successfully');
+           
+            
         }
         else{
             session()->flash('error', 'Failed to update student.');
            $this->dispatch('student-updated-failed');
+          
             
-        }
+        } 
     }//endof function
 
 
