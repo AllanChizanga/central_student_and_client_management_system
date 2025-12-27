@@ -11,7 +11,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ViewCoursesTest extends TestCase
 {
-   
+   use RefreshDatabase;
 public function test_livewire_fetches_and_renders_courses_in_table()
 {
     // Arrange: create 3 fake courses
