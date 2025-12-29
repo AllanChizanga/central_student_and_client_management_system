@@ -11,13 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('projects', function (Blueprint $table) {
+        Schema::create('qoutations', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->uuid('client_id');
-            $table->string('project_name');
-            $table->enum('project_status', ['discovery', 'requirements', 'development', 'completed', 'maintenance']);
-            $table->date('start_date');
-            $table->date('end_date')->nullable();
+            $table->uuid('project_version_id');
+            $table->uuid('qoute_id');
+            $table->text('description');
+            $table->decimal('total_amount', 13, 2)->default(0.00);
+            $table->string('status');
+            $table->date('valid_until');
             $table->softDeletes();
             $table->timestamps();
         });
@@ -28,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('projects');
+        Schema::dropIfExists('qoutations');
     }
 };
