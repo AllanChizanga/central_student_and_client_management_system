@@ -101,6 +101,7 @@ class CreateClientLivewire extends Component
             'occupation' => $this->occupation,
             'client_type' => $this->client_type,
             'client_status' => $this->client_status,
+            'address' => $this->address,
         ];
     }
 

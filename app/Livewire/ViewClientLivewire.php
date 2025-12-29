@@ -16,9 +16,22 @@ class ViewClientLivewire extends Component
     public function initiate_open_add_client_modal()
     {
         $this->dispatch('initiate_open_add_client_modal');
-        
-    }#endof function
 
+    }#endof function 
+
+
+    #initiate_update_client
+    public function initiate_update_client($client_id)
+    {
+        $this->dispatch('initiate_update_client',$client_id);
+    } 
+
+
+    #delete 
+    public function delete($client_id)
+    {
+        $this->dispatch('not-authorized');
+    }
 
     #render
     public function render()

@@ -108,13 +108,13 @@
                                                         wire:click="delete('{{ $client->id }}')"
                                                         class="btn btn-link btn-sm text-danger p-0"
                                                         title="Delete"
-                                                        wire:target="deleteClient"
+                                                        wire:target="delete('{{ $client->id }}')"
                                                         wire:loading.attr="disabled"
                                                     >
-                                                        <span wire:loading.remove wire:target="deleteClient">
+                                                        <span wire:loading.remove wire:target="delete('{{ $client->id }}')">
                                                             <i class="ti ti-trash"></i>
                                                         </span>
-                                                        <span wire:loading wire:target="deleteClient">
+                                                        <span wire:loading wire:target="delete('{{ $client->id }}')">
                                                             <span class="spinner-border spinner-border-sm text-danger align-middle" role="status" aria-hidden="true"></span>
                                                             <span class="visually-hidden">Loading...</span>
                                                         </span>
@@ -140,7 +140,7 @@
     </div>
     <script>
         // Listen for Livewire not-authorized-to-delete dispatched event
-        document.addEventListener('not-authorized-to-delete', function () {
+        document.addEventListener('not-authorized', function () {
             const notyf = new Notyf({
                 duration: 3000,
                 position: { x: 'right', y: 'top' },

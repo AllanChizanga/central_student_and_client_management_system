@@ -17,5 +17,19 @@ class ClientService
     public function create($client_dto)
     {
         return  $this->client_repository->create($client_dto);
+    } 
+
+    # update 
+    public function update($client_dto)
+    {
+        return  $this->client_repository->update($client_dto);
     }
+
+    #fetch_one 
+    public function fetch_one_with_user($client_id)
+    { 
+
+        return $this->client_repository->fetch_one_with_user($client_id);
+    }
+
 }
