@@ -38,5 +38,16 @@ class StudentService
        return $student;
         
 
+    } 
+
+
+#FETCH ALL 
+
+public function fetch_all()
+{
+        #pass to repository
+        $students =  $this->student_repository->fetch_all();
+        //  dd($student);
+         return $students;
 }
 }//endof class

@@ -47,7 +47,7 @@
             </li>
             <li class="sidebar-item app-text-primary">
                 <a class="sidebar-link app-text-primary"
-                   href="#"
+                   href="{{ route('enrollment') }}"
                    data-bs-toggle="tooltip" 
                    data-bs-placement="right" 
                    title="View and manage course enrollments">
@@ -67,7 +67,7 @@
             </li>
             <li class="sidebar-item app-text-primary">
                 <a class="sidebar-link app-text-primary"
-                   href="#"
+                   href="{{ route('client') }}"
                    data-bs-toggle="tooltip" 
                    data-bs-placement="right"
                    title="Browse and manage client accounts">

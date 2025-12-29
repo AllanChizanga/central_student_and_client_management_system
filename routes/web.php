@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Middleware\IsAuth;
+use App\Livewire\ClientLivewire;
 use App\Livewire\CourseLivewire;
 use App\Livewire\IntakeLivewire;
 use App\Livewire\StudentLivewire;
 use App\Livewire\DashboardLivewire;
+use App\Livewire\EnrollmentLivewire;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 
@@ -32,3 +34,9 @@ Route::get('course-management',CourseLivewire::class)->name('course')->middlewar
 
 #INTAKE
 Route::get('intake-management',IntakeLivewire::class)->name('intake')->middleware('auth');  
+
+#ENROLLMENT
+Route::get('enrollment-management',EnrollmentLivewire::class)->name('enrollment')->middleware('auth');  
+
+#CLIENT
+Route::get('client-management',ClientLivewire::class)->name('client')->middleware('auth');  

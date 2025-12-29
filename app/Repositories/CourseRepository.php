@@ -5,6 +5,7 @@ namespace App\Repositories;
 use Throwable;
 use App\Models\Course;
 use App\DTOs\CourseDTO;
+use Illuminate\Database\Eloquent\Collection;
 
 class CourseRepository
 {
@@ -16,32 +17,27 @@ class CourseRepository
         //
     }
 
-
-    #CREATE
+    // CREATE
     public function create(CourseDTO $course_dto)
     {
         try {
             $data = $course_dto->to_array();
 
-         
             $course = Course::create($data);
 
             return $course;
-
         } catch (Throwable $e) {
-
             // Optionally, you can use a custom exception or handle/log here.
-            logger()->error('Failed to create course: '.$e->getMessage(), [
+            logger()->error('Failed to create course: ' . $e->getMessage(), [
                 'exception' => $e,
             ]);
             return null;
         }
-    }//endof function 
+    }  // endof function
 
-    #UPDATE
+    // UPDATE
     public function update(CourseDTO $course_dto)
     {
-       
         try {
             $data = $course_dto->to_array();
 
@@ -62,11 +58,44 @@ class CourseRepository
 
             return $course;
         } catch (Throwable $e) {
-            logger()->error('Failed to update course: '.$e->getMessage(), [
+            logger()->error('Failed to update course: ' . $e->getMessage(), [
                 'exception' => $e,
             ]);
             return null;
         }
     }
 
-}//endof class 
+
+  
+    public function fetch_all()
+    {
+        try 
+        {
+            return Course::query()->orderBy('created_at', 'desc')->get();
+
+        } catch (Throwable $e) {
+            logger()->error('Failed to fetch all courses: ' . $e->getMessage(), [
+                'exception' => $e,
+            ]);
+
+            return null;
+        }
+    } 
+
+
+   
+    public function fetch_one(string $course_id)
+    {
+        try
+         {
+            return Course::find($course_id);
+         } 
+         catch (Throwable $e) 
+         {
+            logger()->error('Failed to fetch one course: ' . $e->getMessage(), [
+                'exception' => $e,
+            ]);
+            return null;
+        }
+    }
+}  // endof class

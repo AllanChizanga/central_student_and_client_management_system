@@ -16,7 +16,13 @@ return new class extends Migration
             $table->uuid('user_id');
             $table->string('company_name');
             $table->string('industry');
-            $table->enum('client_status', ['lead', 'active', 'completed']);
+            $table->decimal('lifetime_revenue_contribution', 15, 2)->default(0);
+            $table->string('country');
+            $table->string('city');
+            $table->string('occupation')->nullable();
+            $table->string('address')->nullable();
+            $table->enum('client_type', ['individual', 'organization'])->default('individual');
+            $table->enum('client_status', ['lead', 'active', 'completed'])->default('active');
             $table->softDeletes();
             $table->timestamps();
         });

@@ -2,12 +2,12 @@
 
 namespace App\Repositories;
 
-use Log;
-use Throwable;
-use RuntimeException;
-use App\Models\Intake;
 use App\DTOs\IntakeDTO;
+use App\Models\Intake;
 use InvalidArgumentException;
+use Log;
+use RuntimeException;
+use Throwable;
 
 class IntakeRepository
 {
@@ -19,30 +19,26 @@ class IntakeRepository
         //
     }
 
-
     public function create(IntakeDTO $intake_dto)
-    { 
+    {
+        try {
+            $intake_data = $intake_dto->to_array();
+            unset($intake_data['id']);
 
-    try {
-        $intake_data = $intake_dto->to_array();
-        unset($intake_data['id']);
+            $intake = Intake::create($intake_data);
 
-        $intake = Intake::create($intake_data);
-
-        return $intake;
-    } catch (Throwable $e) {
-        Log::error('failed_to_create_intake: ' . $e->getMessage(), [
-            'intake' => $intake_dto->to_array(),
-            'exception' => $e,
-        ]);
-        return null;
-    }
-        
-    }//endof create 
-
+            return $intake;
+        } catch (Throwable $e) {
+            Log::error('failed_to_create_intake: ' . $e->getMessage(), [
+                'intake' => $intake_dto->to_array(),
+                'exception' => $e,
+            ]);
+            return null;
+        }
+    }  // endof create
 
     public function update(IntakeDTO $intake_dto)
-    { 
+    {
         try {
             $intake_data = $intake_dto->to_array();
 
@@ -64,6 +60,20 @@ class IntakeRepository
         } catch (Throwable $e) {
             Log::error('failed_to_update_intake: ' . $e->getMessage(), [
                 'intake' => $intake_dto->to_array(),
+                'exception' => $e,
+            ]);
+            return null;
+        }
+    }
+
+    public function fetch_all()
+    {
+        try {
+            return Intake::query()
+                ->orderBy('created_at', 'desc')
+                ->get();
+        } catch (Throwable $e) {
+            Log::error('failed_to_fetch_all_intakes: ' . $e->getMessage(), [
                 'exception' => $e,
             ]);
             return null;

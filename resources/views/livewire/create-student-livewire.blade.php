@@ -58,32 +58,32 @@
 
                         <div class="col-md-6">
                             <label for="user_type" class="form-label app-text-primary">User Type</label>
-                            <select wire:model.defer="user_type" id="user_type" class="form-select @error('user_type') is-invalid @enderror app-text-primary">
-                                <option value="" class="app-text-primary">Select type</option>
-                                <option value="student" class="app-text-primary">Student</option>
-                                <option value="client" class="app-text-primary">Client</option>
-                                <option value="lead" class="app-text-primary">Lead</option>
+                            <select wire:model.defer="user_type" id="user_type" class="form-select @error('user_type') is-invalid @enderror">
+                                <option value="">Select type</option>
+                                <option value="student">Student</option>
+                                <option value="client">Client</option>
+                                <option value="lead">Lead</option>
                             </select>
                             @error('user_type')<span class="invalid-feedback app-text-primary">{{ $message }}</span>@enderror
                         </div>
 
                         <div class="col-md-6">
                             <label for="status" class="form-label app-text-primary">Status</label>
-                            <select wire:model.defer="status" id="status" class="form-select @error('status') is-invalid @enderror app-text-primary">
-                                <option value="" class="app-text-primary">Select status</option>
-                                <option value="active" class="app-text-primary">Active</option>
-                                <option value="inactive" class="app-text-primary">Inactive</option>
-                                <option value="suspended" class="app-text-primary">Suspended</option>
+                            <select wire:model.defer="status" id="status" class="form-select @error('status') is-invalid @enderror">
+                                <option value="">Select status</option>
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
+                                <option value="suspended">Suspended</option>
                             </select>
                             @error('status')<span class="invalid-feedback app-text-primary">{{ $message }}</span>@enderror
                         </div>
 
                         <div class="col-md-6">
                             <label for="enrollment_status" class="form-label app-text-primary">Enrollment Status</label>
-                            <select wire:model.defer="enrollment_status" id="enrollment_status" class="form-select @error('enrollment_status') is-invalid @enderror app-text-primary">
-                                <option value="" class="app-text-primary">Select enrollment status</option>
-                                <option value="enrolled" class="app-text-primary">Enrolled</option>
-                                <option value="pending" class="app-text-primary">Pending</option>
+                            <select wire:model.defer="enrollment_status" id="enrollment_status" class="form-select @error('enrollment_status') is-invalid @enderror">
+                                <option value="">Select enrollment status</option>
+                                <option value="enrolled">Enrolled</option>
+                                <option value="pending">Pending</option>
                             </select>
                             @error('enrollment_status')<span class="invalid-feedback app-text-primary">{{ $message }}</span>@enderror
                         </div>
@@ -125,11 +125,11 @@
 
                         <div class="col-md-6">
                             <label for="gender" class="form-label app-text-primary">Gender</label>
-                            <select wire:model.defer="gender" id="gender" class="form-select @error('gender') is-invalid @enderror app-text-primary">
-                                <option value="" class="app-text-primary">Select gender</option>
-                                <option value="male" class="app-text-primary">Male</option>
-                                <option value="female" class="app-text-primary">Female</option>
-                                <option value="other" class="app-text-primary">Other</option>
+                            <select wire:model.defer="gender" id="gender" class="form-select @error('gender') is-invalid @enderror">
+                                <option value="">Select gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
                             </select>
                             @error('gender')<span class="invalid-feedback app-text-primary">{{ $message }}</span>@enderror
                         </div>

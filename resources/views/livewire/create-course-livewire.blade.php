@@ -25,11 +25,11 @@
 
                             <div class="col-md-6">
                                 <label for="category" class="form-label app-text-primary">Category</label>
-                                <select wire:model.defer="category" id="category" class="form-select @error('category') is-invalid @enderror app-text-primary">
-                                    <option value="" class="app-text-primary">Select category</option>
-                                    <option value="Software Engineering" class="app-text-primary">Software Engineering</option>
-                                    <option value="Cybersecurity" class="app-text-primary">Cybersecurity</option>
-                                    <option value="Artificial Intelligence" class="app-text-primary">Artificial Intelligence</option>
+                                <select wire:model.defer="category" id="category" class="form-select @error('category') is-invalid @enderror">
+                                    <option value="">Select category</option>
+                                    <option value="Software Engineering">Software Engineering</option>
+                                    <option value="Cybersecurity">Cybersecurity</option>
+                                    <option value="Artificial Intelligence">Artificial Intelligence</option>
                                 </select>
                                 @error('category')<small class="text-danger">{{ $message }}</small>@enderror
                             </div>
@@ -43,13 +43,13 @@
                             {{-- Hardcoded options from enums --}}
                             <div class="col-md-6">
                                 <label for="mode_of_learning" class="form-label app-text-primary">Mode of Learning</label>
-                                <select wire:model.defer="mode_of_learning" id="mode_of_learning" class="form-select @error('mode_of_learning') is-invalid @enderror app-text-primary">
-                                    <option value="" class="app-text-primary">Select mode</option>
-                                    <option value="Evening Online" class="app-text-primary">Evening Online</option>
-                                    <option value="Day In Person" class="app-text-primary">Day In Person</option>
-                                    <option value="Evening In Person" class="app-text-primary">Evening In Person</option>
-                                    <option value="Weekend In Person" class="app-text-primary">Weekend In Person</option>
-                                    <option value="Online Self Paced" class="app-text-primary">Online Self Paced</option>
+                                <select wire:model.defer="mode_of_learning" id="mode_of_learning" class="form-select @error('mode_of_learning') is-invalid @enderror">
+                                    <option value="">Select mode</option>
+                                    <option value="Evening Online">Evening Online</option>
+                                    <option value="Day In Person">Day In Person</option>
+                                    <option value="Evening In Person">Evening In Person</option>
+                                    <option value="Weekend In Person">Weekend In Person</option>
+                                    <option value="Online Self Paced">Online Self Paced</option>
                                 </select>
                                 @error('mode_of_learning')<small class="text-danger">{{ $message }}</small>@enderror
                             </div>
@@ -62,10 +62,10 @@
 
                             <div class="col-md-6">
                                 <label for="fee_currency" class="form-label app-text-primary">Fee Currency</label>
-                                <select wire:model.defer="fee_currency" id="fee_currency" class="form-select @error('fee_currency') is-invalid @enderror app-text-primary">
-                                    <option value="" class="app-text-primary">Select currency</option>
-                                    <option value="USD" class="app-text-primary">USD - US Dollar</option>
-                                    <option value="ZWL" class="app-text-primary">ZWL - Zimbabwe Dollar</option>
+                                <select wire:model.defer="fee_currency" id="fee_currency" class="form-select @error('fee_currency') is-invalid @enderror">
+                                    <option value="">Select currency</option>
+                                    <option value="USD">USD - US Dollar</option>
+                                    <option value="ZWL">ZWL - Zimbabwe Dollar</option>
                                
                                 </select>
                                 @error('fee_currency')<small class="text-danger">{{ $message }}</small>@enderror
@@ -79,10 +79,10 @@
 
                             <div class="col-md-6">
                                 <label for="active" class="form-label app-text-primary">Status</label>
-                                <select wire:model.defer="active" id="active" class="form-select @error('active') is-invalid @enderror app-text-primary">
-                                    <option value="" class="app-text-primary">Select status</option>
-                                    <option value="1" class="app-text-primary">Active</option>
-                                    <option value="0" class="app-text-primary">Inactive</option>
+                                <select wire:model.defer="active" id="active" class="form-select @error('active') is-invalid @enderror">
+                                    <option value="">Select status</option>
+                                    <option value="1">Active</option>
+                                    <option value="0">Inactive</option>
                                 </select>
                                 @error('active')<small class="text-danger">{{ $message }}</small>@enderror
                             </div>
