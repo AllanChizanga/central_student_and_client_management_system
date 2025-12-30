@@ -9,6 +9,7 @@ use App\Livewire\DashboardLivewire;
 use App\Livewire\EnrollmentLivewire;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Livewire\ProjectVersionLivewire;
 
 
 
@@ -40,3 +41,6 @@ Route::get('enrollment-management',EnrollmentLivewire::class)->name('enrollment'
 
 #CLIENT
 Route::get('client-management',ClientLivewire::class)->name('client')->middleware('auth');  
+
+#PROJECT VERSION
+Route::get('project-version-management',ProjectVersionLivewire::class)->name('project-version')->middleware('auth');  

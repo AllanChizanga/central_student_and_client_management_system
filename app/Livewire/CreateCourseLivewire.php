@@ -107,7 +107,7 @@ class CreateCourseLivewire extends Component
        #course data 
        $course_data = $this->get_course_array_data(); 
        #save syllabus using action and return the document name 
-       $syllabus_pdf_path = $this->save_private_document->execute($course_data['syllabus_pdf']);
+       $syllabus_pdf_path = $this->save_private_document->execute('syllabuses',$course_data['syllabus_pdf']); #directory and file as parameters
        if(!$syllabus_pdf_path)
        {
         session()->flash('error','Failed To Save Syllabus');

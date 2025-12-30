@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Repositories\ClientRepository;
+use Illuminate\Database\Eloquent\Collection;
 
 class ClientService
 {
@@ -30,6 +31,11 @@ class ClientService
     { 
 
         return $this->client_repository->fetch_one_with_user($client_id);
+    }
+  
+    public function fetch_all(): Collection
+    {
+        return $this->client_repository->fetch_all();
     }
 
 }

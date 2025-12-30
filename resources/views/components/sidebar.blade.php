@@ -5,124 +5,211 @@
     <!-- Sidebar navigation with scroll effect using Tailwind and overflow-auto and custom scrollbar -->
     <nav class="sidebar-nav overflow-auto custom-scrollbar" style="max-height: calc(70vh - 2rem);">
         <ul id="sidebarnav" class="pb-8">
-            <li class="sidebar-item app-text-primary">
-                <a class="sidebar-link app-text-primary" 
-                   href="{{ route('dashboard') }}" 
-                   data-bs-toggle="tooltip" 
-                   data-bs-placement="right" 
+            <li class="sidebar-item">
+                <a class="sidebar-link text-white"
+                   href="{{ route('dashboard') }}"
+                   data-bs-toggle="tooltip"
+                   data-bs-placement="right"
                    title="View dashboard overview, stats, and recent activity">
-                    <i class="ti ti-layout-grid app-text-primary"></i>
-                    <span class="hide-menu app-text-primary">Dashboard</span>
+                    <i class="ti ti-layout-grid"></i>
+                    <span class="hide-menu">Dashboard</span>
                 </a>
             </li>
-            <li class="sidebar-item app-text-primary">
-                <a class="sidebar-link app-text-primary" 
-                   href="{{ route('student') }}" 
-                   data-bs-toggle="tooltip" 
-                   data-bs-placement="right" 
+            <li class="sidebar-item">
+                <a class="sidebar-link text-white"
+                   href="{{ route('student') }}"
+                   data-bs-toggle="tooltip"
+                   data-bs-placement="right"
                    title="Browse, create, or manage student records">
-                    <i class="ti ti-user app-text-primary"></i>
-                    <span class="hide-menu app-text-primary">Students</span>
+                    <i class="ti ti-user"></i>
+                    <span class="hide-menu">Students</span>
                 </a>
             </li>
-            <li class="sidebar-item app-text-primary">
-                <a class="sidebar-link app-text-primary" 
+            <li class="sidebar-item">
+                <a class="sidebar-link text-white"
                    href="{{ route('course') }}"
-                   data-bs-toggle="tooltip" 
-                   data-bs-placement="right" 
+                   data-bs-toggle="tooltip"
+                   data-bs-placement="right"
                    title="View and manage available courses">
-                    <i class="ti ti-book app-text-primary"></i>
-                    <span class="hide-menu app-text-primary">Courses</span>
+                    <i class="ti ti-book"></i>
+                    <span class="hide-menu">Courses</span>
                 </a>
             </li>
-            <li class="sidebar-item app-text-primary">
-                <a class="sidebar-link app-text-primary"
+            <li class="sidebar-item">
+                <a class="sidebar-link text-white"
                    href="{{ route('intake') }}"
                    data-bs-toggle="tooltip"
                    data-bs-placement="right"
                    title="View and manage course intakes">
-                    <i class="ti ti-calendar-event app-text-primary"></i>
-                    <span class="hide-menu app-text-primary">Intakes</span>
+                    <i class="ti ti-calendar-event"></i>
+                    <span class="hide-menu">Intakes</span>
                 </a>
             </li>
-            <li class="sidebar-item app-text-primary">
-                <a class="sidebar-link app-text-primary"
+            <li class="sidebar-item">
+                <a class="sidebar-link text-white"
                    href="{{ route('enrollment') }}"
-                   data-bs-toggle="tooltip" 
-                   data-bs-placement="right" 
+                   data-bs-toggle="tooltip"
+                   data-bs-placement="right"
                    title="View and manage course enrollments">
-                    <i class="ti ti-clipboard-list app-text-primary"></i>
-                    <span class="hide-menu app-text-primary">Enrollments</span>
+                    <i class="ti ti-clipboard-list"></i>
+                    <span class="hide-menu">Enrollments</span>
                 </a>
             </li>
-            <li class="sidebar-item app-text-primary">
-                <a class="sidebar-link app-text-primary"
+            <li class="sidebar-item">
+                <a class="sidebar-link text-white"
                    href="#"
-                   data-bs-toggle="tooltip" 
+                   data-bs-toggle="tooltip"
                    data-bs-placement="right"
                    title="View and manage student and client payments">
-                    <i class="ti ti-credit-card app-text-primary"></i>
-                    <span class="hide-menu app-text-primary">Payments</span>
+                    <i class="ti ti-credit-card"></i>
+                    <span class="hide-menu">Payments</span>
                 </a>
             </li>
-            <li class="sidebar-item app-text-primary">
-                <a class="sidebar-link app-text-primary"
+            <li class="sidebar-item">
+                <a class="sidebar-link text-white"
                    href="{{ route('client') }}"
-                   data-bs-toggle="tooltip" 
+                   data-bs-toggle="tooltip"
                    data-bs-placement="right"
                    title="Browse and manage client accounts">
-                    <i class="ti ti-user-circle app-text-primary"></i>
-                    <span class="hide-menu app-text-primary">Clients</span>
+                    <i class="ti ti-user-circle"></i>
+                    <span class="hide-menu">Clients</span>
                 </a>
             </li>
-            <li class="sidebar-item app-text-primary">
-                <a class="sidebar-link app-text-primary"
-                   href="#"
-                   data-bs-toggle="tooltip" 
+            <li class="sidebar-item">
+                <a class="sidebar-link text-white"
+                   href="{{ route('project-version') }}"
+                   data-bs-toggle="tooltip"
                    data-bs-placement="right"
                    title="Manage or view project details and status">
-                    <i class="ti ti-briefcase app-text-primary"></i>
-                    <span class="hide-menu app-text-primary">Projects</span>
+                    <i class="ti ti-briefcase"></i>
+                    <span class="hide-menu">Project Version</span>
                 </a>
             </li>
-            <li class="sidebar-item app-text-primary">
-                <a class="sidebar-link app-text-primary"
+            <li class="sidebar-item">
+                <a class="sidebar-link text-white"
                    href="#"
-                   data-bs-toggle="tooltip" 
+                   data-bs-toggle="tooltip"
                    data-bs-placement="right"
                    title="View analytics and generate reports">
-                    <i class="ti ti-file-analytics app-text-primary"></i>
-                    <span class="hide-menu app-text-primary">Reports</span>
+                    <i class="ti ti-file-analytics"></i>
+                    <span class="hide-menu">Reports</span>
                 </a>
             </li>
-            <li class="sidebar-item app-text-primary">
-                <a class="sidebar-link app-text-primary"
+            <li class="sidebar-item">
+                <a class="sidebar-link text-white"
                    href="#"
-                   data-bs-toggle="tooltip" 
+                   data-bs-toggle="tooltip"
                    data-bs-placement="right"
                    title="Get AI-generated feedback for assignments or work">
-                    <i class="ti ti-brain app-text-primary"></i>
-                    <span class="hide-menu app-text-primary">Ai feedback</span>
+                    <i class="ti ti-brain"></i>
+                    <span class="hide-menu">Ai feedback</span>
                 </a>
             </li>
-            <li class="sidebar-item app-text-primary">
-                <a class="sidebar-link app-text-primary"
+            <li class="sidebar-item">
+                <a class="sidebar-link text-white"
                    href="#"
-                   data-bs-toggle="tooltip" 
+                   data-bs-toggle="tooltip"
                    data-bs-placement="right"
                    title="View and manage application users">
-                    <i class="ti ti-users app-text-primary"></i>
-                    <span class="hide-menu app-text-primary">Users</span>
+                    <i class="ti ti-users"></i>
+                    <span class="hide-menu">Users</span>
                 </a>
             </li>
-            <li class="sidebar-item app-text-primary">
+
+            <!-- Payroll & HR Links -->
+            <li class="sidebar-item">
+                <a class="sidebar-link text-white"
+                   href="#"
+                   data-bs-toggle="tooltip"
+                   data-bs-placement="right"
+                   title="View and manage employees">
+                    <i class="ti ti-id-badge"></i>
+                    <span class="hide-menu">Employees</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a class="sidebar-link text-white"
+                   href="#"
+                   data-bs-toggle="tooltip"
+                   data-bs-placement="right"
+                   title="View and manage payroll profiles">
+                    <i class="ti ti-address-book"></i>
+                    <span class="hide-menu">Payroll Profiles</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a class="sidebar-link text-white"
+                   href="#"
+                   data-bs-toggle="tooltip"
+                   data-bs-placement="right"
+                   title="Run and manage payroll cycles">
+                    <i class="ti ti-calculator"></i>
+                    <span class="hide-menu">Payroll Runs</span>
+                </a>
+            </li>
+            <!-- End Payroll & HR Links -->
+
+            <!-- Newly added links -->
+            <li class="sidebar-item">
+                <a class="sidebar-link text-white"
+                   href="{{ route('dashboard') }}"
+                   data-bs-toggle="tooltip"
+                   data-bs-placement="right"
+                   title="View and manage dropout records">
+                    <i class="ti ti-arrow-down-circle"></i>
+                    <span class="hide-menu">Dropouts</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a class="sidebar-link text-white"
+                   href="{{ route('dashboard') }}"
+                   data-bs-toggle="tooltip"
+                   data-bs-placement="right"
+                   title="View and manage admin fees">
+                    <i class="ti ti-cash"></i>
+                    <span class="hide-menu">Admin Fees</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a class="sidebar-link text-white"
+                   href="{{ route('dashboard') }}"
+                   data-bs-toggle="tooltip"
+                   data-bs-placement="right"
+                   title="Manage regular operating expenses">
+                    <i class="ti ti-building-bank"></i>
+                    <span class="hide-menu">Operating Expenses</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a class="sidebar-link text-white"
+                   href="{{ route('dashboard') }}"
+                   data-bs-toggle="tooltip"
+                   data-bs-placement="right"
+                   title="View expense instances (monthly or scheduled)">
+                    <i class="ti ti-currency-dollar"></i>
+                    <span class="hide-menu">Expense Instances</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a class="sidebar-link text-white"
+                   href="{{ route('dashboard') }}"
+                   data-bs-toggle="tooltip"
+                   data-bs-placement="right"
+                   title="Perform and review tax calculations">
+                    <i class="ti ti-percentage"></i>
+                    <span class="hide-menu">Tax Calculations</span>
+                </a>
+            </li>
+            <!-- End newly added links -->
+
+            <li class="sidebar-item">
                 <form method="POST" action="{{ route('logout') }}" class="m-0 p-0">
                     @csrf
-                    <button type="submit" class="sidebar-link btn btn-link app-text-primary fw-semibold d-flex align-items-center p-0"
+                    <button type="submit" class="sidebar-link btn btn-link fw-semibold d-flex align-items-center p-0 text-white"
                         style="text-decoration: none;"
                         data-bs-toggle="tooltip" data-bs-placement="right" title="Logout of admin dashboard">
-                        <i class="ti ti-logout me-1 app-text-primary"></i>
-                        <span class="hide-menu app-text-primary">Logout</span>
+                        <i class="ti ti-logout me-1"></i>
+                        <span class="hide-menu">Logout</span>
                     </button>
                 </form>
             </li>

@@ -2,9 +2,10 @@
 
 namespace App\Repositories;
 
+use App\Models\Client;
+use Illuminate\Database\Eloquent\Collection;
 use Log;
 use Throwable;
-use App\Models\Client;
 
 class ClientRepository
 {
@@ -16,31 +17,25 @@ class ClientRepository
         //
     }
 
-
-    #create($client_dto) 
+    // create($client_dto)
     public function create($client_dto)
     {
         $data = $client_dto->to_array();
 
         unset($data['id']);
 
-        try 
-        {
+        try {
             return Client::create($data);
-        }
-         catch (Throwable $e) 
-         {
+        } catch (Throwable $e) {
             Log::error('Failed to create client', [
                 'data' => $data,
                 'exception' => $e,
             ]);
             return null;
         }
-    } 
+    }
 
-
-
-    #update
+    // update
     public function update($client_dto)
     {
         $data = $client_dto->to_array();
@@ -76,18 +71,15 @@ class ClientRepository
             ]);
             return null;
         }
-    }  
+    }
 
+    // fetch_one_with_user
 
-    #fetch_one_with_user 
-   
     public function fetch_one_with_user($clientId)
     {
         try {
             return Client::with('user')->find($clientId);
-        } 
-        catch (Throwable $e) 
-        {
+        } catch (Throwable $e) {
             Log::error('Failed to fetch client with user', [
                 'client_id' => $clientId,
                 'exception' => $e,
@@ -96,4 +88,18 @@ class ClientRepository
         }
     }
 
+    public function fetch_all(): Collection
+    {
+        try
+        {
+            return Client::all();
+        } 
+        catch (Throwable $e) 
+        {
+            Log::error('Failed to fetch all clients', [
+                'exception' => $e,
+            ]);
+            return collect();
+        }
+    }
 }

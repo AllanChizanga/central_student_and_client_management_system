@@ -17,19 +17,21 @@ class SavePrivateDocumentAction
 
     
     #EXECUTE 
-    public function execute($syllabus_pdf) 
+    public function execute($directory,$document) 
 
-    {
+    { 
+        #posssible directories ndas, contracts, syllabuses, brds, etc
               #check if file is not null 
-              if(!$syllabus_pdf)
+              if(!$document)
               {
                 return null;
               }
-              #save to syllabuses directory 
+              #save to documents directory 
               try {
-                  $path = $syllabus_pdf->store('syllabuses', 'local');
+                  $path = $document->store($directory, 'local'); # store in this directory in the local driver
+
               } catch (Throwable $e) {
-                  logger()->error('Failed to save syllabus PDF: ' . $e->getMessage(), [
+                  logger()->error('Failed to save Document: ' . $e->getMessage(), [
                       'exception' => $e,
                   ]);
                   return null;
