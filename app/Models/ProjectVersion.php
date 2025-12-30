@@ -4,9 +4,11 @@ namespace App\Models;
 
 use App\Models\Client;
 use App\Models\Quotation;
+use App\Models\ProjectMilestone;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -65,5 +67,9 @@ class ProjectVersion extends Model
     {
         return $this->belongsTo(Quotation::class);
     }
+public function milestones(): HasMany
+{
+    return $this->hasMany(ProjectMilestone::class);
+}
 
 }

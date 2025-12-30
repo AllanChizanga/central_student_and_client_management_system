@@ -40,6 +40,15 @@ class ViewProjectVersionLivewire extends Component
 
     } 
 
+    #open_milestone_creation 
+    public function open_milestone_creation($project_version_id)
+    { 
+       
+
+        $this->dispatch('initiate_open_milestone_creation',$project_version_id);
+
+    }
+
 
     #delete 
     public function delete($project_version_id)
@@ -67,6 +76,16 @@ class ViewProjectVersionLivewire extends Component
             })
             ->orderByDesc('created_at')
             ->paginate(10);
+
+        foreach ($project_versions as $project_version) {
+            $milestoneCount = $project_version->milestones()->count();
+            if ($milestoneCount < 2) {
+            session()->flash('error', 'Add Milestones for '.$project_version->project_version_name);
+                
+               
+            
+            }
+        }
 
         return view('livewire.view-project-version-livewire', [
             'project_versions' => $project_versions,

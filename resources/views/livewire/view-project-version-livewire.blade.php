@@ -25,6 +25,37 @@
                     </button>
                 </div>
             </div>
+
+            {{-- Session Success and Error Messages --}}
+            @if (session()->has('success'))
+                <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+                    <i class="ti ti-circle-check me-2"></i>
+                    {{ session('success') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
+
+            @if (session()->has('error'))
+                <div 
+                    class="alert alert-danger alert-dismissible fade show mt-3 blink-soft" 
+                    role="alert"
+                >
+                    <i class="ti ti-alert-triangle me-2"></i>
+                    {{ session('error') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+
+                <style>
+                    @keyframes blinkSoft {
+                        0%, 100% { opacity: 1; }
+                        50% { opacity: 0.6; }
+                    }
+                    .blink-soft {
+                        animation: blinkSoft 1.4s infinite;
+                    }
+                </style>
+            @endif
+
             <div class="mb-3 mt-4">
                 <div class="row g-4 align-items-end">
                     <div class="col-md-6 col-sm-12">
@@ -152,6 +183,21 @@
                                                         </span>
                                                         <span wire:loading wire:target="initiate_update_project_version('{{ $project_version->id }}')">
                                                             <span class="spinner-border spinner-border-sm text-primary align-middle" role="status" aria-hidden="true"></span>
+                                                            <span class="visually-hidden">Loading...</span>
+                                                        </span>
+                                                    </button>
+                                                    <button
+                                                        wire:click="open_milestone_creation('{{ $project_version->id }}')"
+                                                        class="btn btn-link btn-sm text-success p-0"
+                                                        title="Create Milestones"
+                                                        wire:target="open_milestone_creation('{{ $project_version->id }}')"
+                                                        wire:loading.attr="disabled"
+                                                    >
+                                                        <span wire:loading.remove wire:target="open_milestone_creation('{{ $project_version->id }}')">
+                                                            <i class="ti ti-flag"></i>
+                                                        </span>
+                                                        <span wire:loading wire:target="open_milestone_creation('{{ $project_version->id }}')">
+                                                            <span class="spinner-border spinner-border-sm text-success align-middle" role="status" aria-hidden="true"></span>
                                                             <span class="visually-hidden">Loading...</span>
                                                         </span>
                                                     </button>
