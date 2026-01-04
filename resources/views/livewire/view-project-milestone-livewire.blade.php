@@ -49,6 +49,25 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="mb-3 mt-2 text-end">
+                            <button
+                                type="button"
+                                class="btn btn-outline-success"
+                                wire:click="download_quotation"
+                                wire:loading.attr="disabled"
+                                wire:target="download_quotation"
+                            >
+                                <span wire:loading.remove wire:target="download_quotation">
+                                    Download Quotation
+                                </span>
+                                <span wire:loading wire:target="download_quotation">
+                                    <span class="spinner-border spinner-border-sm align-middle me-2" role="status" aria-hidden="true"></span>
+                                    Downloading...
+                                </span>
+                            </button>
+                        </div>
+
                         <div>
                             <div class="row align-items-end">
                                 <div class="col-12">
