@@ -70,8 +70,10 @@ class ProjectVersionRepository
         try {
             $data = $project_version_dto->to_array();
             $projectVersion = ProjectVersion::findOrFail($project_version_dto->id);
-            $projectVersion->update($data);
-            return $projectVersion;
+             if (!$projectVersion) {
+                return null;
+             }
+             return $projectVersion->update($data);
         } catch (Throwable $e) {
             Log::error('Failed to update ProjectVersion', [
                 'error' => $e->getMessage(),

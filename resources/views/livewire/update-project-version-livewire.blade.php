@@ -71,7 +71,7 @@
                                 <label for="brd_document_edit" class="form-label app-text-primary">BRD Document</label>
                                 <input type="file" wire:model.defer="brd_document" id="brd_document_edit" class="form-control @error('brd_document') is-invalid @enderror">
                                 @if($brd_document)
-                                    <a href="{{ $current_brd_document }}" target="_blank" class="d-block mt-1">View Current</a>
+                                    <a href="{{ $brd_document }}" target="_blank" class="d-block mt-1">View Current</a>
                                 @endif
                                 @error('brd_document')<small class="text-danger">{{ $message }}</small>@enderror
                             </div>
@@ -79,7 +79,7 @@
                                 <label for="contract_edit" class="form-label app-text-primary">Contract</label>
                                 <input type="file" wire:model.defer="contract" id="contract_edit" class="form-control @error('contract') is-invalid @enderror">
                                 @if($contract)
-                                    <a href="{{ $current_contract }}" target="_blank" class="d-block mt-1">View Current</a>
+                                    <a href="{{ $contract }}" target="_blank" class="d-block mt-1">View Current</a>
                                 @endif
                                 @error('contract')<small class="text-danger">{{ $message }}</small>@enderror
                             </div>
@@ -87,7 +87,7 @@
                                 <label for="nda_edit" class="form-label app-text-primary">NDA</label>
                                 <input type="file" wire:model.defer="nda" id="nda_edit" class="form-control @error('nda') is-invalid @enderror">
                                 @if($nda)
-                                    <a href="{{ $current_nda }}" target="_blank" class="d-block mt-1">View Current</a>
+                                    <a href="{{ $nda }}" target="_blank" class="d-block mt-1">View Current</a>
                                 @endif
                                 @error('nda')<small class="text-danger">{{ $message }}</small>@enderror
                             </div>

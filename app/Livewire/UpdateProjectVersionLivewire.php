@@ -45,7 +45,7 @@ class UpdateProjectVersionLivewire extends Component
     #[Validate(['nullable', 'file', 'max:10240'])]
     public $nda;
 
-    #[Validate(['nullable', 'uuid', 'exists:quotations,id'])]
+    #[Validate(['nullable', 'uuid', 'exists:qoutations,id'])]
     public ?string $quotation_id = null;
 
     #[Validate(['required', 'integer', 'min:0'])]

@@ -30,12 +30,12 @@ class ProjectVersionFactory extends Factory
                 'production',                  // System in Production – product is live and actively used by clients
                 'maintenance_mode',            // Maintenance Mode – post-release support, bug fixes, updates
             ]),
-            'start_date' => $this->faker->date(),
-            'end_date' => $this->faker->date(),
-            'brd_document' => $this->faker->optional()->url(),
-            'contract' => $this->faker->optional()->url(),
-            'nda' => $this->faker->optional()->url(),
-            'quotation_id' => Quotation::factory()->create()->id,
+            'start_date' => now(),
+            'end_date' => now()->addMonths(4),
+            'brd_document' => $this->faker->url(),
+            'contract' => $this->faker->url(),
+            'nda' => $this->faker->url(),
+            'quotation_id' => null,
             'sprint_duration_days' => $this->faker->randomElement([7, 14, 21, 28]),
             'hosting_and_domain_fee' => $this->faker->randomFloat(2, 0, 500),
             'has_whatsapp_integration' => $this->faker->boolean(),
