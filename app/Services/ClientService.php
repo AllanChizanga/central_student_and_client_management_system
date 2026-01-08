@@ -38,4 +38,9 @@ class ClientService
         return $this->client_repository->fetch_all();
     }
 
+public function update_lifetime_revenue_contribution($project_version, $amount)
+{
+    return $this->client_repository->update_lifetime_revenue_contribution($project_version, $amount);
+}
+
 }

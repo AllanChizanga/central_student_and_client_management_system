@@ -6,7 +6,7 @@
     <style>
         @page {
             size: A4;
-            margin: 32px 40px 36px 40px; /* top, right, bottom, left margins for A4 print/PDF */
+            margin: 32px 40px 36px 40px;
         }
         html, body {
             height: 100%;
@@ -22,33 +22,64 @@
         }
         .container {
             max-width: 820px;
-            /* Reduce max-width to fit A4 after margins (A4 width: 210mm ~= 794px @96dpi) */
             margin: 32px auto;
             background: #fff;
             border-radius: 16px;
-            /* Increased padding for right margin space */
             padding: 40px 36px 40px 36px;
             box-shadow: 0 6px 24px rgba(56, 46, 140, 0.13);
         }
-        .header {
+        /* Improved Letterhead */
+        .letterhead-row {
             display: flex;
             align-items: center;
-            border-bottom: 2px solid #eaeaea;
-            padding-bottom: 16px;
-            margin-bottom: 28px;
+            min-height: 70px;
+            margin-bottom: 26px;
+            border-bottom: 4px solid #a54df8;
+            padding-bottom: 10px;
+            /* Visually group with the main content */
         }
-        .logo {
-            height: 70px;
-            margin-right: 24px;
+        .letterhead-logo {
+            flex: 0 0 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        .company-info {
-            color: #2d3142;
+        .letterhead-logo img {
+            height: 52px;
+            width: auto;
+            display: block;
+        }
+        .letterhead-info {
+            flex: 1;
+            margin-left: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .company-name {
+            font-size: 1.45rem;
+            font-weight: bold;
+            color: #741cc8;
+            letter-spacing: 1.2px;
+        }
+        .contacts {
+            color: #423e5e;
+            font-size: 0.99rem;
+            margin-top: 1.5px;
+        }
+        .company-address {
+            font-size: 0.96rem;
+            color: #7e7b8a;
+            margin-top: 2px;
         }
         .quotation-title {
-            font-size: 2.3rem;
+            font-size: 2.05rem;
             font-weight: bold;
             color: #2a2e45;
             letter-spacing: 2px;
+            margin-top: 18px;
+            margin-bottom: 16px;
+            padding-bottom: 4px;
         }
         .section {
             margin-bottom: 28px;
@@ -129,7 +160,6 @@
         .badge-warning { background: #fff6e0; color: #c47c00; }
         .badge-danger  { background: #ffeaea; color: #d32f2f; }
         .badge-unknown { background: #e0e2ee; color: #5a6372; }
-        /* Prevent overflow for print/PDF */
         @media print {
             html, body {
                 width: 210mm;
@@ -139,23 +169,33 @@
             .container {
                 box-shadow: none !important;
             }
+            .letterhead-row {
+                border-bottom-width: 3px;
+            }
         }
     </style>
 </head>
 <body>
 <div class="container">
-    <!-- Header: Logo & Info -->
-    <div class="header">
-        <img src="assets/images/logos/logo.png" alt="Zomac Digital Logo" class="logo">
-        <div class="company-info">
-            <div class="quotation-title">Quotation</div>
-            <div style="margin-top: 4px;">
-                <strong>Zomac Digital</strong><br>
-                <span>www.zomacdigital.co.zw | zomac.agency@gmail.com</span><br>
-                <span>82 Rezende St, Harare</span>
-            </div>
+
+    <!-- Letterhead Start (horizontal, non-overlapping) -->
+    <div class="letterhead-row">
+        <div class="letterhead-logo">
+            <img src="assets/images/logos/logo.png" alt="Zomac Digital Logo">
+        </div>
+        <div class="letterhead-info">
+            <span class="company-name">Zomac Digital</span>
+            <span class="contacts">
+                www.zomacdigital.co.zw &nbsp;|&nbsp; zomac.agency@gmail.com
+            </span>
+            <span class="company-address">
+                82 Rezende St, Harare
+            </span>
         </div>
     </div>
+    <!-- Letterhead End -->
+
+    <div class="quotation-title">Quotation</div>
 
     <!-- Project & Client Info -->
     <div class="section" style="display:flex; gap:48px;">

@@ -1,4 +1,5 @@
-<div>
+<div> 
+    @livewire('create-project-version-payment-livewire')
     <div class="container-fluid mt-0 pt-0">
         <div>
             <div class="d-flex align-items-center justify-content-between rounded app-bg-elevated px-4 pb-2 mb-0 shadow mt-0 pt-0">
@@ -105,7 +106,24 @@
                                         <tr>
                                             <td>{{ $index + 1 }}</td>
                                             <td>{{ $project_version->version_number ?? '-' }}</td>
-                                            <td>{{ $project_version->project_version_name ?? '-' }}</td>
+                                            <td>
+                                                {{ $project_version->project_version_name ?? '-' }}
+                                                <button
+                                                    class="btn btn-sm btn-outline-primary ms-2"
+                                                    wire:click="download_invoice('{{ $project_version->id }}')"
+                                                    wire:target="download_invoice('{{ $project_version->id }}')"
+                                                    wire:loading.attr="disabled"
+                                                    title="Download Invoice"
+                                                >
+                                                    <span wire:loading.remove wire:target="download_invoice('{{ $project_version->id }}')">
+                                                        <i class="bi bi-download"></i> Invoice
+                                                    </span>
+                                                    <span wire:loading wire:target="download_invoice('{{ $project_version->id }}')">
+                                                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                                        Downloading...
+                                                    </span>
+                                                </button>
+                                            </td>
                                             <td>{{ $project_version->client->company_name ?? '-' }}</td>
                                             <td>
                                                 <span class="badge
@@ -199,6 +217,21 @@
                                                         <span wire:loading wire:target="open_milestone_creation('{{ $project_version->id }}')">
                                                             <span class="spinner-border spinner-border-sm text-success align-middle" role="status" aria-hidden="true"></span>
                                                             <span class="visually-hidden">Loading...</span>
+                                                        </span>
+                                                    </button>
+                                                    <button
+                                                        wire:click="pay_for_project_version('{{ $project_version->id }}')"
+                                                        class="btn btn-link btn-sm text-warning p-0"
+                                                        title="Pay"
+                                                        wire:target="pay_for_project_version('{{ $project_version->id }}')"
+                                                        wire:loading.attr="disabled"
+                                                    >
+                                                        <span wire:loading.remove wire:target="pay_for_project_version('{{ $project_version->id }}')">
+                                                            <i class="ti ti-credit-card"></i>
+                                                        </span>
+                                                        <span wire:loading wire:target="pay_for_project_version('{{ $project_version->id }}')">
+                                                            <span class="spinner-border spinner-border-sm text-warning align-middle" role="status" aria-hidden="true"></span>
+                                                            <span class="visually-hidden">Processing...</span>
                                                         </span>
                                                     </button>
                                                     <button

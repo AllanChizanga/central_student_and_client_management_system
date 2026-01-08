@@ -71,5 +71,10 @@ public function milestones(): HasMany
 {
     return $this->hasMany(ProjectMilestone::class);
 }
+public function payments(): HasMany
+{
+    return $this->hasMany(ProjectVersionPayment::class);
+}
+
 
 }

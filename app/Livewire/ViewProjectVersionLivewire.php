@@ -5,6 +5,7 @@ namespace App\Livewire;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\ProjectVersion;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class ViewProjectVersionLivewire extends Component
 {
@@ -55,7 +56,27 @@ class ViewProjectVersionLivewire extends Component
     { 
         $this->dispatch('not-authorized');
 
+    } 
+
+
+    #pay_for_project_version 
+    public function pay_for_project_version($project_version_id)
+    {
+        $this->dispatch('initiate_pay_for_project_version',$project_version_id);
     }
+ 
+
+    public function download_invoice($project_version_id)
+    { 
+        $this->project_version = ProjectVersion::findOrFail($project_version_id);
+        $pdf = Pdf::loadView('pdfs.project_invoices', [
+            'project_version' => $this->project_version,
+        ]);
+
+        return response()->streamDownload(function () use ($pdf) {
+            echo $pdf->output();
+        }, 'invoice.pdf');
+    }  // endof
 
 
 

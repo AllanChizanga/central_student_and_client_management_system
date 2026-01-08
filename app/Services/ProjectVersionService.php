@@ -43,6 +43,14 @@ class ProjectVersionService
     public function delete(string $id): bool
     {
         return $this->project_version_repository->delete($id);
+    } 
+
+    #>update_payment($amount) 
+    public function update_payment($project_version,$amount)
+    { 
+        
+        return $this->project_version_repository->update_payment($project_version,$amount);
+
     }
 
 

@@ -2,9 +2,10 @@
 
 namespace App\Livewire;
 
-use App\Models\Enrollment;
 use Livewire\Component;
+use App\Models\Enrollment;
 use Livewire\WithPagination;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class ViewEnrollmentLivewire extends Component
 {
@@ -59,7 +60,29 @@ class ViewEnrollmentLivewire extends Component
     public function delete_enrollment($enrollment_id)
     {
         $this->dispatch('not-authorized');
-    }
+    } 
+
+
+    #make_payment 
+    public function make_payment($enrollment_id)
+    { 
+
+        $this->dispatch('initiate-make-payment',$enrollment_id);
+    } 
+
+    # 
+    public function download_invoice($enrollment_id)
+    { 
+        $enrollment = Enrollment::findOrFail($enrollment_id);
+        $pdf = Pdf::loadView('pdfs.student_invoices', [
+            'enrollment' => $enrollment,
+        ]);
+
+        return response()->streamDownload(function () use ($pdf) {
+            echo $pdf->output();
+        }, 'invoice.pdf');
+    }  // endof
+
 
     // render
     public function render()

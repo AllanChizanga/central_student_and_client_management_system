@@ -1,6 +1,7 @@
 <div>
     <div class="container-fluid mt-0 pt-0">
         <div>
+            @livewire('student-payment-livewire')
             <div class="d-flex align-items-center justify-content-between rounded app-bg-elevated px-4 pb-2 mb-0 shadow mt-0 pt-0">
                 <div class="d-flex align-items-center">
                     <h4 class="text-sm fw-light app-text-primary mb-0">
@@ -8,13 +9,21 @@
                         Manage Enrollments
                     </h4>
                 </div>
-                <div>
+                <div class="d-flex gap-2">
                     <button
                         class="btn btn-primary d-flex align-items-center gap-2 px-4 py-2 fw-semibold"
                         wire:click="initiate_view_enrollment_modal"
                     >
                         <i class="ti ti-plus"></i>
                         Add Enrollment
+                    </button>
+                    <button
+                        type="button"
+                        class="btn btn-outline-secondary d-flex align-items-center gap-2 px-4 py-2 fw-semibold"
+                        wire:click="exportEnrollments"
+                    >
+                        <i class="ti ti-download"></i>
+                        Export
                     </button>
                 </div>
             </div>
@@ -62,9 +71,28 @@
                                                     : '-' }}
                                             </td>
                                             <td>
-                                                {{ $enrollment->student && $enrollment->student->user && $enrollment->student->user->fullname
-                                                    ? $enrollment->student->user->fullname
-                                                    : '-' }}
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <span>
+                                                        {{ $enrollment->student && $enrollment->student->user && $enrollment->student->user->fullname
+                                                            ? $enrollment->student->user->fullname
+                                                            : '-' }}
+                                                    </span>
+                                                    <button
+                                                        type="button"
+                                                        class="btn btn-sm btn-outline-info d-flex align-items-center gap-1 py-1 px-2"
+                                                        wire:click="download_invoice('{{ $enrollment->id }}')"
+                                                        title="Download Invoice"
+                                                        wire:loading.attr="disabled"
+                                                        wire:target="download_invoice('{{ $enrollment->id }}')"
+                                                    >
+                                                        <span wire:loading.remove wire:target="download_invoice('{{ $enrollment->id }}')">
+                                                            <i class="ti ti-file-invoice"></i>
+                                                        </span>
+                                                        <span wire:loading wire:target="download_invoice('{{ $enrollment->id }}')">
+                                                            <span class="spinner-border spinner-border-sm align-middle" role="status" aria-hidden="true"></span>
+                                                        </span>
+                                                    </button>
+                                                </div>
                                             </td>
                                             <td>
                                                 {{ $enrollment->course && $enrollment->course->name
@@ -116,6 +144,22 @@
                                                         <span class="spinner-border spinner-border-sm align-middle me-1" role="status" aria-hidden="true"></span>
                                                     </span>
                                                 </button>
+
+                                                <button
+                                                    class="btn btn-sm btn-light text-success me-1"
+                                                    title="Make Payment"
+                                                    wire:click="make_payment('{{ $enrollment->id }}')"
+                                                    wire:loading.attr="disabled"
+                                                    wire:target="make_payment('{{ $enrollment->id }}')"
+                                                >
+                                                    <span wire:loading.remove wire:target="make_payment('{{ $enrollment->id }}')">
+                                                        <i class="ti ti-currency-dollar"></i>
+                                                    </span>
+                                                    <span wire:loading wire:target="make_payment('{{ $enrollment->id }}')">
+                                                        <span class="spinner-border spinner-border-sm align-middle me-1" role="status" aria-hidden="true"></span>
+                                                    </span>
+                                                </button>
+
                                                 <button
                                                     class="btn btn-sm btn-light text-danger"
                                                     title="Delete"

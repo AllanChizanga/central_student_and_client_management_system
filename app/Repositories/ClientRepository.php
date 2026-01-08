@@ -102,4 +102,37 @@ class ClientRepository
             return collect();
         }
     }
+
+    /**
+     * Update the lifetime revenue contribution for the client associated with the provided ProjectVersion model.
+     *
+     * @param \App\Models\ProjectVersion $projectVersion
+     * @param float $amount
+     * @return bool
+     */
+    public function update_lifetime_revenue_contribution($projectVersion, float $amount): bool
+    {
+        try {
+            $client = $projectVersion->client;
+
+            if (!$client) {
+                Log::error('Client not found for update_lifetime_revenue_contribution', [
+                    'project_version_id' => $projectVersion->id,
+                ]);
+                return false;
+            }
+
+            $client->lifetime_revenue_contribution += $amount;
+            $client->save();
+
+            return true;
+        } catch (Throwable $e) {
+            Log::error('Failed to update lifetime revenue contribution', [
+                'project_version_id' => $projectVersion->id,
+                'amount' => $amount,
+                'exception' => $e,
+            ]);
+            return false;
+        }
+    }
 }

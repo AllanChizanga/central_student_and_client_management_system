@@ -37,4 +37,8 @@ class Enrollment extends Model
     {
         return $this->belongsTo(Intake::class);
     }
+    public function student_payments()
+    {
+        return $this->hasMany(StudentPayment::class);
+    }
 }
