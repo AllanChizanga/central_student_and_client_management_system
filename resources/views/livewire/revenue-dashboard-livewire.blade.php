@@ -1,16 +1,13 @@
 <div class="container-fluid p-0">
     <div class="app-card">
-        <div id="monthly-revenue-chart"></div>
+        <div id="quarterly-revenue-chart"></div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script>
-        // Example data: Replace with dynamic injection from backend if available
-        const monthlyRevenueData = [12000, 15500, 14200, 21000, 19500, 18500, 22300, 23900, 21700, 22500, 23100, 24400];
-        const monthCategories = [
-            'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-            'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
-        ];
+        // Example quarterly data: Replace with dynamic injection from backend if available
+        const quarterlyRevenueData = [41700, 59000, 67400, 70000]; // Q1, Q2, Q3, Q4
+        const quarterCategories = ['Q1', 'Q2', 'Q3', 'Q4'];
 
         const options = {
             chart: {
@@ -21,12 +18,12 @@
             },
             series: [{
                 name: 'Revenue',
-                data: monthlyRevenueData
+                data: quarterlyRevenueData
             }],
             xaxis: {
-                categories: monthCategories,
+                categories: quarterCategories,
                 title: {
-                    text: 'Month'
+                    text: 'Quarter'
                 }
             },
             yaxis: {
@@ -61,7 +58,7 @@
             }
         };
 
-        var chart = new ApexCharts(document.querySelector("#monthly-revenue-chart"), options);
+        var chart = new ApexCharts(document.querySelector("#quarterly-revenue-chart"), options);
         chart.render();
     </script>
 </div>
