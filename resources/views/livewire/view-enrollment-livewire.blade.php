@@ -66,9 +66,28 @@
                                         <tr>
                                             <td>{{ $index + 1 }}</td>
                                             <td>
-                                                {{ $enrollment->student && $enrollment->student->student_number
-                                                    ? $enrollment->student->student_number
-                                                    : '-' }}
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <span>
+                                                        {{ $enrollment->student && $enrollment->student->student_number
+                                                            ? $enrollment->student->student_number
+                                                            : '-' }}
+                                                    </span>
+                                                    <button
+                                                        type="button"
+                                                        class="btn btn-sm btn-outline-primary d-flex align-items-center gap-1 py-1 px-2"
+                                                        wire:click="download_quotation('{{ $enrollment->id }}')"
+                                                        title="Download Quotation"
+                                                        wire:loading.attr="disabled"
+                                                        wire:target="download_quotation('{{ $enrollment->id }}')"
+                                                    >
+                                                        <span wire:loading.remove wire:target="download_quotation('{{ $enrollment->id }}')">
+                                                            <i class="ti ti-file-download"></i>
+                                                        </span>
+                                                        <span wire:loading wire:target="download_quotation('{{ $enrollment->id }}')">
+                                                            <span class="spinner-border spinner-border-sm align-middle" role="status" aria-hidden="true"></span>
+                                                        </span>
+                                                    </button>
+                                                </div>
                                             </td>
                                             <td>
                                                 <div class="d-flex align-items-center gap-2">

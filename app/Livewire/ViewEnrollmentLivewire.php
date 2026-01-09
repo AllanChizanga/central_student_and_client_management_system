@@ -81,6 +81,18 @@ class ViewEnrollmentLivewire extends Component
         return response()->streamDownload(function () use ($pdf) {
             echo $pdf->output();
         }, 'invoice.pdf');
+    }  // endof 
+
+    public function download_quotation($enrollment_id)
+    { 
+        $enrollment = Enrollment::findOrFail($enrollment_id);
+        $pdf = Pdf::loadView('pdfs.student_quote', [
+            'enrollment' => $enrollment,
+        ]);
+
+        return response()->streamDownload(function () use ($pdf) {
+            echo $pdf->output();
+        }, 'invoice.pdf');
     }  // endof
 
 
